@@ -50,7 +50,10 @@ end
 
 include_recipe 'java::set_java_home'
 
-package 'tar'
+# our Macs install gnu-tar via homebrew!
+if ['webmate-slave']['browser-identification']['os'] != 'mac'
+  package 'tar'
+end
 
 java_ark 'jdk' do
   url tarball_url
