@@ -51,7 +51,7 @@ end
 include_recipe 'java::set_java_home'
 
 # our Macs install gnu-tar via homebrew!
-if ['webmate-slave']['browser-identification']['os'] != 'mac'
+if node['webmate-slave']['browser-identification']['os'] != 'mac'
   package 'tar'
 end
 
