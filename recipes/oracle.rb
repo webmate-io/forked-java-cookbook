@@ -56,6 +56,7 @@ if node['java']['install-tar']
       package 'tar' #TODO: no idea if correct but it was the default applied to ALL SYSTEMS beforehand, hence nothing was changed
     when 'mac_os_x'
       package 'gnu-tar'
+  end
 end
 
 java_ark 'jdk' do
