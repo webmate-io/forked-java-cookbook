@@ -50,9 +50,12 @@ end
 
 include_recipe 'java::set_java_home'
 
-# our Macs install gnu-tar via homebrew!
-if node['webmate-slave']['browser-identification']['os'] != 'mac'
-  package 'tar'
+if node['java']['install-tar']
+  case node['platform_family']
+    when 'windows'
+      package 'tar' #TODO: no idea if correct but it was the default applied to ALL SYSTEMS beforehand, hence nothing was changed
+    when 'mac_os_x'
+      package 'gnu-tar'
 end
 
 java_ark 'jdk' do

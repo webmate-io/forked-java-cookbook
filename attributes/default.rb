@@ -27,9 +27,10 @@ default['java']['set_default'] = true
 default['java']['alternatives_priority'] = 1062
 default['java']['set_etc_environment'] = false
 default['java']['use_alt_suffix'] = true
-
 default['java']['set-alternatives'] = true # if 'false', skips the correspondig code completely, otherwise alternatives are updated!
 default['java']['reset_alternatives'] = true # requires above to be 'true' to have any effect
+
+default['java']['install-tar'] = true # installs gnu-tar to extract downloaded JDKs
 
 # the following retry parameters apply when downloading oracle java
 default['java']['ark_retries'] = 0
@@ -46,6 +47,7 @@ when 'windows'
   default['java']['windows']['public_jre_home'] = nil
 when 'mac_os_x'
   default['java']['install_flavor'] = 'homebrew'
+  #TODO: discuss presence of "override['java']['set-alternatives'] = false" here, which would make sense in my opinion
 else
   default['java']['install_flavor'] = 'openjdk'
 end
