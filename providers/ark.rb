@@ -91,6 +91,8 @@ action :install do
   app_dir = app_root + '/' + app_dir_name
   app_group = if new_resource.group
                 new_resource.group
+              elsif node['java']['group-to-set']
+                node['java']['group-to-set']
               else
                 new_resource.owner
               end
